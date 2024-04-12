@@ -1,5 +1,5 @@
 /* eslint-disable no-await-in-loop */
-const Quiz = require('./mvc/controller');
+const Quiz = require('./mvc/quiz');
 const View = require('./mvc/view');
 const Base = require('./mvc/model');
 

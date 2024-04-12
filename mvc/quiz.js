@@ -1,4 +1,3 @@
-/* eslint-disable no-await-in-loop */
 const fs = require('fs/promises');
 const path = require('path');
 const View = require('./view');
@@ -25,14 +24,6 @@ class Quiz {
       }
     });
   }
-
-  //   playMusic(numb) {
-  //     play.play('./sounds/1.mp3', (err) => {
-  //       if (err) {
-  //         console.log('Ошибка воспроизведения звука');
-  //       }
-  //     })
-  //   }
 }
 
 module.exports = Quiz;
