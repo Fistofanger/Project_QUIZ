@@ -6,7 +6,13 @@ const names = [
   'raccoon_flashcard_data.txt',
 ];
 
-const question = 'Привет. Как дела?';
+async function start() {
+  const question = 'Привет. Как дела?';
 
-const selectedTopic = View.inputAnswer(question);
-// console.log(selectedTopic);
+  const { selectedTopic } = await View.selectTopic(names);
+  const { playerAnswer } = await View.inputAnswer(question);
+  console.log(selectedTopic);
+  console.log(playerAnswer);
+}
+
+start();

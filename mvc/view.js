@@ -4,8 +4,8 @@ class View {
   static selectTopic(arr) {
     const result = inquirer.prompt([
       {
-        type: 'list',
-        name: 'chooseGame',
+        type: 'rawlist',
+        name: 'selectedTopic',
         message: 'Выбери тему quiz',
         choices: arr,
         filter(value) {
@@ -20,7 +20,7 @@ class View {
     const result = inquirer.prompt([
       {
         type: 'input',
-        name: 'answer',
+        name: 'playerAnswer',
         message: `${question}\n Ваш ответ:`,
         default: 'Введите ваш ответ маленькими русскими буквами',
       },
