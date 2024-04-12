@@ -16,7 +16,7 @@ class View {
     return result;
   }
 
-  static inputAnswer(question) {
+  static async inputAnswer(question) {
     const result = inquirer.prompt([
       {
         type: 'input',
@@ -26,6 +26,10 @@ class View {
       },
     ]);
     return result;
+  }
+
+  static consoleMessage(message) {
+    console.log(message);
   }
 }
 
