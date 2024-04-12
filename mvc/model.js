@@ -1,10 +1,9 @@
 const fs = require('fs/promises');
 const { EOL } = require('os');
-const { question } = require('readline-sync');
 
 class Base {
   // свойство квиз с массивом объектов - ключ - вопрос, значение - ответ
-  constructor(quiz) {
+  constructor(quiz = []) {
     this.quiz = quiz;
   }
 
