@@ -2,7 +2,7 @@ const fs = require('fs/promises');
 const { EOL } = require('os');
 const { question } = require('readline-sync');
 
-class Model {
+class Base {
   // свойство квиз с массивом объектов - ключ - вопрос, значение - ответ
   constructor(quiz) {
     this.quiz = quiz;
@@ -22,6 +22,9 @@ class Model {
       obj.answer = arrString[i + 1];
       arrObj.push(obj);
     }
+    this.quiz = arrObj;
     return arrObj;
   }
 }
+
+module.exports = Base;

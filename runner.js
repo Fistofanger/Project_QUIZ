@@ -1,24 +1,18 @@
-const View = require('./mvc/view');
 const Quiz = require('./mvc/controller');
-
-// const names = [
-//   'nighthawk_flashcard_data.txt',
-//   'otter_flashcard_data.txt',
-//   'raccoon_flashcard_data.txt',
-// ];
+const View = require('./mvc/view');
 
 async function start() {
-  // const question = 'Привет. Как дела?';
-
-  // const { selectedTopic } = await View.selectTopic(names);
-  // const { playerAnswer } = await View.inputAnswer(question);
-  // console.log(selectedTopic);
-  // console.log(playerAnswer);
-
   const newGame = new Quiz();
   await newGame.getQuizList();
-
-  await newGame.selectCurrentQuiz(newGame.quizList);
+  do {
+    await newGame.selectCurrentQuiz(newGame.quizList);
+    await newGame.playQuiz(newGame.currentQuiz);
+    View.consoleMessage(`\n Поздравляю! Ты заработал ${newGame.points}\n`);
+    const { playerAnswer } = await View.inputAnswer(
+      'Хочешь пройти другой quiz?'
+    );
+    if (playerAnswer !== 'да') newGame.quizList = [];
+  } while (newGame.quizList.length !== 0);
 }
 
 start();
